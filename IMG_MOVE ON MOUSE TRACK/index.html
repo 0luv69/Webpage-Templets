@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track image on mouse movement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <div class="main_container">
+        <img src="1.png" alt="book image" srcset="" id="img1">
+    </div>
+
+
+
+
+
+    <!-- // Hover mover img content -->
+    <!-- <script>
+        const main_container = document.querySelector('.main_container');
+        const img1 = main_container.querySelector('#img1');
+        const rect = main_container.getBoundingClientRect();
+        top_ = rect.top;
+        right_ = rect.right;
+        bottom_ = rect.bottom;
+        left_ = rect.left;
+        let imgX = 0
+        let imgY = 0
+        main_container.addEventListener('mousemove', (event) => {
+            let x = event.clientX; let y = event.clientY;
+            if (y > top_ + 70 && x > left_ + 60 && x < right_ - 60 && y < bottom_ - 70) {
+                imgX = x - left_ - 140 - 60;
+                imgY = y - top_ - 220 + 20;
+                img1.style.transition = '.01s ease-in';
+                img1.style.transform = ` translateX(${imgX}px) translateY(${imgY}px)`;
+
+            }
+            else {
+                img1.style.transition = '1s ease-in';
+                img1.style.transform = ` translateX(${0}px) translateY(${0}px)`;
+            }
+        })
+        main_container.addEventListener('mouseout', (evt) => {
+            img1.style.transition = '.5s ease-in';
+            img1.style.transform = ` translateX(${0}px) translateY(${0}px)`;
+        })
+      img1.addEventListener('dragstart', function (event) {
+            event.preventDefault();
+        });
+
+    </script>
+ -->
+
+
+    <!--  drag and move the image -->
+    <script>
+        const main_container = document.querySelector('.main_container');
+        const img1 = main_container.querySelector('#img1');
+        const rect = main_container.getBoundingClientRect();
+        top_ = rect.top;
+        right_ = rect.right;
+        bottom_ = rect.bottom;
+        left_ = rect.left;
+        let imgX = 0
+        let imgY = 0
+
+        img1.addEventListener('mousedown', startDrag);
+        img1.addEventListener('mouseup', endDrag);
+
+        function startDrag(event) {
+            document.addEventListener('mousemove', moveBox);
+            img1.style.cursor = 'grabbing';
+        }
+        function moveBox(event) {
+            let x = event.clientX; let y = event.clientY;
+            if (y > top_ + 70 && x > left_ + 60 && x < right_ - 60 && y < bottom_ - 70) {
+                imgX = x - left_ - 140 - 60;
+                imgY = y - top_ - 220 + 20;
+                img1.style.transition = '.01s ease-in';
+                img1.style.transform = ` translateX(${imgX}px) translateY(${imgY}px)`;
+
+            }
+            else {
+                img1.style.transition = '1s ease-in';
+                img1.style.transform = ` translateX(0px) translateY(0px)`;
+            }
+        }
+
+        function endDrag() {
+            img1.style.cursor = 'grab';
+            img1.style.transition = '.5s ease-in';
+            document.removeEventListener('mousemove', moveBox);
+            img1.style.transform = `translateX(0px) translateY(0px)`;
+
+        }
+
+        main_container.addEventListener('mouseout', (evt) => {
+            endDrag()
+        })
+
+        img1.addEventListener('dragstart', function (event) {
+            event.preventDefault();
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- bottom: 565.6000061035156
+    ​
+    height: 400
+    ​
+    left: 372
+    ​
+    right: 772
+    ​
+    top: 165.60000610351562
+    ​
+    width: 400 -->

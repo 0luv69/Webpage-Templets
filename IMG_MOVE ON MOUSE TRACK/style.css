@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgb(88, 5, 5), rgb(39, 41, 42), rgb(47, 46, 46), rgb(3, 58, 3), rgb(5, 5, 109)) no-repeat;
+}
+
+.main_container {
+    position: relative;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: aqua;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 455,236 */
+.main_container img {
+    cursor: grab;
+
+    position: relative;
+    height: 140px;
+    width: 220px;
+
+
+
+}

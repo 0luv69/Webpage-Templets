@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cursor change</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cursor_"></div>
+
+
+
+
+
+    <script>
+        const cursor_ = document.querySelector('.cursor_');
+        document.addEventListener('mousemove', (event) => {
+            cursor_.style.display = 'block';
+
+            x = event.clientX - 10 + 'px';
+            y = event.clientY - 10 + 'px';
+
+            cursor_.style.top = y;
+            cursor_.style.left = x;
+        })
+        document.addEventListener('mouseleave', () => {
+            cursor_.style.display = 'none';
+        });
+
+        setInterval(() => {
+            cursor_.style.display = 'none';
+
+        }, 1500)
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+
+
+
+</html>
